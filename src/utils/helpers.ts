@@ -1,5 +1,21 @@
+import moment from "moment";
 import { setSnackbarObj } from "../../store/reducers/alertsSlice";
 import { dispatch } from "../../store/store";
+import { config } from "@/config/config";
+
+export interface GetFormattedDate {
+  (isoDate: string): string;
+}
+
+export const getFormattedDate: GetFormattedDate = (isoDate) => {
+  const momentObj = moment(isoDate);
+
+  if (momentObj.isValid()) {
+    return momentObj.format(config.dateFormat);
+  }
+  return '';
+};
+
 
 export const setItemInLocalStorage = (key: string, value: any, isStringify: boolean = true): void => {
   localStorage.setItem(key, isStringify ? JSON.stringify(value) : value);

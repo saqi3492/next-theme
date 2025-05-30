@@ -1,17 +1,24 @@
-import React from 'react';
-import { Box, Typography } from '@mui/material';
+'use client';
+import { useEffect } from 'react';
+import { fetchSessionData } from './SessionsApiCalls';
+import SessionsTable from './SessionsTable';
+import SessionHeader from './SessionHeader';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../store/store';
 
-const SessionsPage: React.FC = () => {
+const Sessions = () => {
+  const rowData = useSelector((state: RootState) => state.Session.sessions);
+
+  useEffect(() => {
+    fetchSessionData();
+  }, []);
+
   return (
-    <Box p={3}>
-      <Typography variant="h4" fontWeight={700} mb={2}>
-        Sessions
-      </Typography>
-      <Typography variant="body1">
-        This is the Sessions page. Add your sessions table or content here.
-      </Typography>
-    </Box>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      <SessionHeader />
+      <SessionsTable rowData={rowData} />
+    </div>
   );
 };
 
-export default SessionsPage;
+export default Sessions;
