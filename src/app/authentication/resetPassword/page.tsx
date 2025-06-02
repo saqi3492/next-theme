@@ -10,7 +10,7 @@ import ResetPasswordForm from './ResetPasswordForm';
 import OtpVerification from './OtpVerification';
 import { forgotPassword, resetPassword } from '../auth/AuthApiCalls';
 import Description from '../auth/Description';
-import AuthCard from '@/app/(DashboardLayout)/components/AuthCard';
+import AuthCard from '@/app/(DashboardLayout)/components/shared/AuthCard';
 
 /**
  * @typedef {Object} ForgotPasswordFormValues

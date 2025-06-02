@@ -1,7 +1,7 @@
 'use client';
 import { Grid } from '@mui/material';
 import SignInForm from './SignInForm';
-import AuthCard from '@/app/(DashboardLayout)/components/AuthCard';
+import AuthCard from '@/app/(DashboardLayout)/components/shared/AuthCard';
 import Description from '../auth/Description';
 
 const SignIn = () => {

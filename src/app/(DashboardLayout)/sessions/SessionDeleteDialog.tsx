@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, DialogContent, DialogActions, Typography, Divider } from '@mui/material';
 import { deleteSessionById } from './SessionsApiCalls';
-import AppDialog from '../components/AppDialog';
+import AppDialog from '../components/shared/AppDialog';
 
 interface SessionDeleteDialogProps {
   closeDialog: () => void;

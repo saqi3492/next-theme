@@ -2,7 +2,7 @@
 
 import { Grid } from '@mui/material';
 import SignUpForm from './SignUpForm';
-import AuthCard from '@/app/(DashboardLayout)/components/AuthCard';
+import AuthCard from '@/app/(DashboardLayout)/components/shared/AuthCard';
 import Description from '@/app/authentication/auth/Description';
 
 const SignUp = () => {

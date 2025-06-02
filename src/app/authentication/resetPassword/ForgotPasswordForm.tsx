@@ -1,8 +1,8 @@
 import { Box, Button, Stack, Typography } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { FormikProps } from 'formik';
-import InputField from '@/app/(DashboardLayout)/components/InputField';
-import CustomLink from '@/app/(DashboardLayout)/components/CustomLink';
+import InputField from '@/app/(DashboardLayout)/components/shared/InputField';
+import CustomLink from '@/app/(DashboardLayout)/components/shared/CustomLink';
 
 interface ForgotPasswordFormValues {
   email: string;

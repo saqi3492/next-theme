@@ -1,10 +1,10 @@
 import { Box, Button, Typography } from '@mui/material';
-import CustomLink from '@/app/(DashboardLayout)/components/CustomLink';
+import CustomLink from '@/app/(DashboardLayout)/components/shared/CustomLink';
 import { useFormik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { handleSignIn } from '../auth/AuthApiCalls';
-import PasswordInputField from '@/app/(DashboardLayout)/components/PasswordInputField';
-import InputField from '@/app/(DashboardLayout)/components/InputField';
+import PasswordInputField from '@/app/(DashboardLayout)/components/shared/PasswordInputField';
+import InputField from '@/app/(DashboardLayout)/components/shared/InputField';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
