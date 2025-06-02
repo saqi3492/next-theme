@@ -34,6 +34,9 @@ export const fetchSessionData = async (): Promise<void> => {
   try {
     dispatch(setShowBeatLoader());
 
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
     // const response = await axios.post('/sessions/list', { page_size: 2000 });
     const response: {
       status: boolean;
@@ -88,7 +91,11 @@ export const fetchSessionData = async (): Promise<void> => {
 export const deleteSessionById = async (sessionId: string): Promise<void> => {
   try {
     // const response = await axios.delete(`/sessions/${sessionId}`);
-    const response: { status: boolean; data: boolean; message: string; errors?: any } = { status: true, data: true, message: 'Session deleted successfully.' };
+    const response: { status: boolean; data: boolean; message: string; errors?: any } = {
+      status: true,
+      data: true,
+      message: 'Session deleted successfully.',
+    };
 
     if (response.status) {
       dispatch(deleteSessionAction(sessionId));

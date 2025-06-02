@@ -1,10 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface SnackbarObj {
+export type SnackbarObj = {
   message: string;
-  severity: 'success' | 'error' | 'info' | 'warning';
-}
-
+  severity: 'success' | 'error' | 'warning' | 'info';
+} | null;
 export interface AlertsState {
   snackbarObj: SnackbarObj | null;
   loadingBackdrop: number;
@@ -24,9 +23,6 @@ const alertsSlice = createSlice({
     setSnackbarObj(state, action: PayloadAction<SnackbarObj>) {
       state.snackbarObj = action.payload;
     },
-    clearSnackbarObj(state) {
-      state.snackbarObj = null;
-    },
     showLoadingBackdrop(state) {
       state.loadingBackdrop += 1;
     },
@@ -43,4 +39,4 @@ const alertsSlice = createSlice({
 });
 
 export default alertsSlice.reducer;
-export const { setSnackbarObj, clearSnackbarObj, showLoadingBackdrop, hideLoadingBackdrop, setShowBeatLoader, setHideBeatLoader } = alertsSlice.actions;
+export const { setSnackbarObj, showLoadingBackdrop, hideLoadingBackdrop, setShowBeatLoader, setHideBeatLoader } = alertsSlice.actions;

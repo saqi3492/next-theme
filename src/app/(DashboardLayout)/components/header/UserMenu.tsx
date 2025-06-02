@@ -1,26 +1,15 @@
-import React, { useState, MouseEvent } from "react";
-import {
-  Typography,
-  useMediaQuery,
-  Stack,
-  useTheme,
-  Popover,
-  MenuItem,
-  Paper,
-  Divider,
-} from "@mui/material";
-import StyledAvatar from "./StyledAvatar";
-import { useSelector } from "react-redux";
-import { handleLogout } from "@/utils/helpers";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import { RootState } from "../../../../../store/store";
+import React, { useState, MouseEvent } from 'react';
+import { Typography, useMediaQuery, Stack, useTheme, Popover, MenuItem, Paper, Divider } from '@mui/material';
+import StyledAvatar from './StyledAvatar';
+import { useSelector } from 'react-redux';
+import { handleLogout } from '@/utils/helpers';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import { RootState } from '../../../../../store/store';
 
 const UserMenu: React.FC = () => {
   const theme = useTheme();
-  const downMd = useMediaQuery(theme.breakpoints.down("md"));
-  const userDetail = useSelector(
-    (state: RootState) => state.User.userDetail
-  ) as { name: string; email: string };
+  const downMd = useMediaQuery(theme.breakpoints.down('md'));
+  const userDetail = useSelector((state: RootState) => state.User.userDetail) as { name: string; email: string };
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   return (
@@ -31,12 +20,10 @@ const UserMenu: React.FC = () => {
         spacing={2}
         px="10px"
         sx={{
-          cursor: "pointer",
-          "&:hover": { backgroundColor: theme.palette.action.hover },
+          cursor: 'pointer',
+          '&:hover': { backgroundColor: theme.palette.action.hover },
         }}
-        onClick={(event: MouseEvent<HTMLElement>) =>
-          setAnchorEl(event.currentTarget)
-        }
+        onClick={(event: MouseEvent<HTMLElement>) => setAnchorEl(event.currentTarget)}
       >
         <StyledAvatar />
         {downMd ? null : (
@@ -51,19 +38,15 @@ const UserMenu: React.FC = () => {
             </Stack>
           </>
         )}
-        {anchorEl ? (
-          <ExpandLess sx={{ color: "black" }} />
-        ) : (
-          <ExpandMore sx={{ color: "black" }} />
-        )}
+        {anchorEl ? <ExpandLess sx={{ color: 'black' }} /> : <ExpandMore sx={{ color: 'black' }} />}
       </Stack>
 
       <Popover
         open={Boolean(anchorEl)}
         anchorEl={anchorEl}
         onClose={() => setAnchorEl(null)}
-        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        sx={{ marginLeft: "10px" }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        sx={{ marginLeft: '10px' }}
         disableAutoFocus
       >
         <Paper sx={{ pt: 2, minWidth: 260 }}>
@@ -76,10 +59,10 @@ const UserMenu: React.FC = () => {
               {userDetail?.email}
             </Typography>
           </Stack>
-          <Divider sx={{ borderWidth: "1px", marginTop: "8px" }} />
+          <Divider sx={{ borderWidth: '1px', marginTop: '8px' }} />
 
           <MenuItem sx={{ px: 3, py: 2 }} onClick={handleLogout}>
-            Sign Out
+            Log Out
           </MenuItem>
         </Paper>
       </Popover>

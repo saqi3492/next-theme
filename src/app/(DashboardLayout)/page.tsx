@@ -1,7 +1,7 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 const Page = () => {
-  redirect("/sessions");
+  redirect('/sessions');
   return null;
 };
 

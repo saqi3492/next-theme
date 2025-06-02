@@ -1,13 +1,14 @@
-import moment from "moment";
-import { setSnackbarObj } from "../../store/reducers/alertsSlice";
-import { dispatch } from "../../store/store";
-import { config } from "@/config/config";
+import moment from 'moment';
+import { setSnackbarObj } from '../../store/reducers/alertsSlice';
+import { dispatch } from '../../store/store';
+import { config } from '@/config/config';
+import axios from 'axios';
 
 export interface GetFormattedDate {
   (isoDate: string): string;
 }
 
-export const getFormattedDate: GetFormattedDate = (isoDate) => {
+export const getFormattedDate: GetFormattedDate = isoDate => {
   const momentObj = moment(isoDate);
 
   if (momentObj.isValid()) {
@@ -15,7 +16,6 @@ export const getFormattedDate: GetFormattedDate = (isoDate) => {
   }
   return '';
 };
-
 
 export const setItemInLocalStorage = (key: string, value: any, isStringify: boolean = true): void => {
   localStorage.setItem(key, isStringify ? JSON.stringify(value) : value);
@@ -37,12 +37,18 @@ export const handleLogout = (): void => {
 };
 
 export const handleErrorMessages = (errors: { message: string }[]): void => {
-  const message = errors?.map?.((e) => e.message + '\n').join('') || 'Oops! Something went wrong.';
+  const message = errors?.map?.(e => e.message + '\n').join('') || 'Oops! Something went wrong.';
 
   dispatch(setSnackbarObj({ message, severity: 'error' }));
 };
 
-export const handleCatchError = (error: unknown): void => {
-  // eslint-disable-next-line no-console
-  console.log('error', error);
+export const handleCatchError = (error: any): void => {
+  if (!axios.isCancel(error)) {
+    if (error?.status === 403) {
+      dispatch(setSnackbarObj({ message: error.response?.data?.message || 'Unknown error', severity: 'error' }));
+    } else {
+      console.log('error', error);
+      dispatch(setSnackbarObj({ message: 'Oops! Something went wrong', severity: 'error' }));
+    }
+  }
 };

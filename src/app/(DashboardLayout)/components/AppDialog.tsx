@@ -1,36 +1,19 @@
-import React from 'react';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import IconButton from '@mui/material/IconButton';
+import { Dialog, IconButton, DialogProps } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { DialogProps } from '@mui/material/Dialog';
+import { ReactNode } from 'react';
 
-interface AppDialogProps extends DialogProps {
+interface AppDialogProps {
   onClose: () => void;
-  title?: string;
-  children: React.ReactNode;
+  maxWidth?: DialogProps['maxWidth'];
+  children: ReactNode;
 }
 
-const AppDialog: React.FC<AppDialogProps> = ({ onClose, title, children, ...dialogProps }) => {
+const AppDialog: React.FC<AppDialogProps> = ({ onClose, maxWidth = 'xs', children }) => {
   return (
-    <Dialog onClose={onClose} {...dialogProps}>
-      {title && (
-        <DialogTitle sx={{ m: 0, p: 2 }}>
-          {title}
-          <IconButton
-            aria-label="close"
-            onClick={onClose}
-            sx={{
-              position: 'absolute',
-              right: 8,
-              top: 8,
-              color: (theme) => theme.palette.grey[500],
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
-        </DialogTitle>
-      )}
+    <Dialog open={true} onClose={onClose} fullWidth maxWidth={maxWidth} PaperProps={{ sx: { padding: 2 } }}>
+      <IconButton onClick={onClose} sx={{ position: 'absolute', right: 8, top: 8 }}>
+        <CloseIcon />
+      </IconButton>
       {children}
     </Dialog>
   );

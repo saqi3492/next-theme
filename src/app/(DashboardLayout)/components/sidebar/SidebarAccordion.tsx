@@ -1,25 +1,20 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { styled } from "@mui/material/styles";
-import { Box } from "@mui/material";
-import { usePathname } from "next/navigation";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import {
-  NavItemButton,
-  BulletIcon,
-  BadgeValue,
-  Span,
-} from "./SidebarComponents";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { styled } from '@mui/material/styles';
+import { Box } from '@mui/material';
+import { usePathname } from 'next/navigation';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { NavItemButton, BulletIcon, BadgeValue, Span } from './SidebarComponents';
 
 const NavExpandRoot = styled(Box)(() => ({
-  "& .subMenu": {
+  '& .subMenu': {
     padding: 0,
   },
-  "& .expansion-panel": {
-    "& .expansion-panel": {
+  '& .expansion-panel': {
+    '& .expansion-panel': {
       paddingLeft: 8,
     },
-    overflow: "hidden",
-    transition: "max-height 0.3s cubic-bezier(0, 0, 0.2, 1)",
+    overflow: 'hidden',
+    transition: 'max-height 0.3s cubic-bezier(0, 0, 0.2, 1)',
   },
 }));
 
@@ -29,11 +24,11 @@ interface ChevronIconStyledProps {
 }
 
 const ChevronIconStyled = styled(ChevronRightIcon, {
-  shouldForwardProp: (prop) => prop !== "collapsed" && prop !== "compact",
+  shouldForwardProp: prop => prop !== 'collapsed' && prop !== 'compact',
 })<ChevronIconStyledProps>(({ collapsed, compact }) => ({
   fontSize: 18,
-  transition: "transform 0.3s cubic-bezier(0, 0, 0.2, 1) 0ms",
-  transform: collapsed ? "rotate(90deg)" : "rotate(0deg)",
+  transition: 'transform 0.3s cubic-bezier(0, 0, 0.2, 1) 0ms',
+  transform: collapsed ? 'rotate(90deg)' : 'rotate(0deg)',
   ...(compact && {
     opacity: 0,
     width: 0,
@@ -46,13 +41,13 @@ interface ItemTextProps {
 }
 
 const ItemText = styled(Span)<ItemTextProps>(({ theme, compact, active }) => ({
-  whiteSpace: "nowrap",
-  paddingLeft: "0.8rem",
-  fontSize: "13px",
+  whiteSpace: 'nowrap',
+  paddingLeft: '0.8rem',
+  fontSize: '13px',
   fontWeight: 500,
   color: active ? theme.palette.primary.main : theme.palette.text.secondary,
-  verticalAlign: "middle",
-  transition: "all 0.15s ease",
+  verticalAlign: 'middle',
+  transition: 'all 0.15s ease',
   ...(compact && {
     opacity: 0,
     width: 0,
@@ -82,7 +77,7 @@ interface SidebarAccordionProps {
   sidebarCompact?: boolean;
 }
 
-const SidebarAccordion: React.FC<SidebarAccordionProps> = (props) => {
+const SidebarAccordion: React.FC<SidebarAccordionProps> = props => {
   const { item, children, sidebarCompact } = props;
   const elementRef = useRef<HTMLDivElement | null>(null);
   const componentHeight = useRef(0);
@@ -109,13 +104,13 @@ const SidebarAccordion: React.FC<SidebarAccordionProps> = (props) => {
   }
 
   const calcaulateHeight = useCallback((node: CalcaulateHeightNode) => {
-    if (node.name !== "child") {
+    if (node.name !== 'child') {
       for (let child of Array.from(node.children)) {
         calcaulateHeight(child as CalcaulateHeightNode);
       }
     }
 
-    if (node.name === "child") componentHeight.current += node.scrollHeight;
+    if (node.name === 'child') componentHeight.current += node.scrollHeight;
     else componentHeight.current += 44; //here 44 is node height
 
     return;
@@ -140,11 +135,7 @@ const SidebarAccordion: React.FC<SidebarAccordionProps> = (props) => {
 
   return (
     <NavExpandRoot className="subMenu">
-      <NavItemButton
-        sx={{ padding: "0 12px", justifyContent: "space-between" }}
-        onClick={handleClick}
-        active={hasActive}
-      >
+      <NavItemButton sx={{ padding: '0 12px', justifyContent: 'space-between' }} onClick={handleClick} active={hasActive}>
         <Box pl="7px" display="flex" alignItems="center">
           {icon &&
             (() => {
@@ -153,8 +144,8 @@ const SidebarAccordion: React.FC<SidebarAccordionProps> = (props) => {
                 <IconComponent
                   sx={{
                     fontSize: 18,
-                    color: hasActive ? "primary.main" : "text.secondary",
-                    mr: "4px",
+                    color: hasActive ? 'primary.main' : 'text.secondary',
+                    mr: '4px',
                   }}
                 />
               );
@@ -162,8 +153,8 @@ const SidebarAccordion: React.FC<SidebarAccordionProps> = (props) => {
           {iconText && (
             <BulletIcon
               sx={{
-                marginLeft: "8px",
-                marginRight: "6px",
+                marginLeft: '8px',
+                marginRight: '6px',
                 width: 6,
                 height: 6,
               }}
@@ -175,19 +166,14 @@ const SidebarAccordion: React.FC<SidebarAccordionProps> = (props) => {
           </ItemText>
         </Box>
 
-        <ChevronIconStyled
-          color="disabled"
-          compact={!!sidebarCompact}
-          collapsed={!!collapsed}
-          className="accordionArrow"
-        />
+        <ChevronIconStyled color="disabled" compact={!!sidebarCompact} collapsed={!!collapsed} className="accordionArrow" />
       </NavItemButton>
 
       <div
         ref={elementRef}
         className="expansion-panel"
         style={{
-          maxHeight: !collapsed || sidebarCompact ? "0px" : height + "px",
+          maxHeight: !collapsed || sidebarCompact ? '0px' : height + 'px',
         }}
       >
         {children}

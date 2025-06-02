@@ -1,13 +1,7 @@
-import { useState } from "react";
-import {
-  Button,
-  DialogContent,
-  DialogActions,
-  Typography,
-  Divider,
-} from "@mui/material";
-import { deleteSessionById } from "./SessionsApiCalls";
-import AppDialog from "../components/AppDialog";
+import { useState } from 'react';
+import { Button, DialogContent, DialogActions, Typography, Divider } from '@mui/material';
+import { deleteSessionById } from './SessionsApiCalls';
+import AppDialog from '../components/AppDialog';
 
 interface SessionDeleteDialogProps {
   closeDialog: () => void;
@@ -17,10 +11,7 @@ interface SessionDeleteDialogProps {
   };
 }
 
-const SessionDeleteDialog: React.FC<SessionDeleteDialogProps> = ({
-  closeDialog,
-  data,
-}) => {
+const SessionDeleteDialog: React.FC<SessionDeleteDialogProps> = ({ closeDialog, data }) => {
   const [loading, setLoading] = useState(false);
 
   const handleDelete = async () => {
@@ -31,26 +22,19 @@ const SessionDeleteDialog: React.FC<SessionDeleteDialogProps> = ({
   };
 
   return (
-    <AppDialog onClose={closeDialog} open={true}>
-      <DialogContent sx={{ p: "30px 10px", textAlign: "center" }}>
+    <AppDialog onClose={closeDialog}>
+      <DialogContent sx={{ p: '30px 10px', textAlign: 'center' }}>
         <Typography variant="h6" gutterBottom>
           Confirmation
         </Typography>
-        <Typography variant="body2">
-          Are you sure you want to delete this session?
-        </Typography>
+        <Typography variant="body2">Are you sure you want to delete this session?</Typography>
       </DialogContent>
       <Divider sx={{ mb: 2 }} />
       <DialogActions>
         <Button fullWidth variant="outlined" onClick={closeDialog}>
           No
         </Button>
-        <Button
-          loading={loading as boolean}
-          fullWidth
-          variant="contained"
-          onClick={handleDelete}
-        >
+        <Button loading={loading as boolean} fullWidth variant="contained" onClick={handleDelete}>
           Yes
         </Button>
       </DialogActions>
