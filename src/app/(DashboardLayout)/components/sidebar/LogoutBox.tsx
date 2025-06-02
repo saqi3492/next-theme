@@ -15,7 +15,7 @@ const LogoutBox: React.FC<LogoutBoxProps> = ({ isCompact }) => {
       <Divider sx={{ borderWidth: '1px', marginBottom: '4px' }} />
       <NavItemButton onClick={handleLogout}>
         <LogoutIcon sx={iconStyle(0)} />
-        <StyledText compact={Number(isCompact)}>Log Out</StyledText>
+        <StyledText compact={isCompact ? 1 : undefined}>Log Out</StyledText>
       </NavItemButton>
     </Box>
   );

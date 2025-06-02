@@ -89,7 +89,7 @@ const StyledBadgeValue = styled(Box, {
 
 export const BadgeValue = ({ compact, sx, ...props }: BadgeValueProps) => {
   const sidebarCompact = useSelector((state: RootState) => (state as any).ThemeOptions?.sidebarCompact);
-  return <StyledBadgeValue compact={compact} sidebarCompact={sidebarCompact} sx={{ ...sx }} {...props} />;
+  return <StyledBadgeValue compact={compact ? true : undefined} sidebarCompact={sidebarCompact} sx={{ ...sx }} {...props} />;
 };
 
 interface ParagraphProps extends BoxProps {
@@ -113,7 +113,7 @@ export const Paragraph = (props: ParagraphProps) => {
       fontSize={14}
       component="p"
       fontWeight={500}
-      ellipsis={!!ellipsis}
+      ellipsis={ellipsis ? true : undefined}
       className={clsx({
         [className || '']: true,
       })}
@@ -130,7 +130,7 @@ export const Span = (props: ParagraphProps) => {
     <StyledBox
       fontSize={14}
       component="span"
-      ellipsis={!!ellipsis}
+      ellipsis={ellipsis ? true : undefined}
       className={clsx({
         [className || '']: true,
       })}

@@ -33,7 +33,7 @@ export const getLocalStorageItem = (key: string, defaultValue: any = null, isPar
 
 export const handleLogout = (): void => {
   localStorage.clear();
-  window.location.reload();
+  window.location.href = '/authentication/login';
 };
 
 export const handleErrorMessages = (errors: { message: string }[]): void => {

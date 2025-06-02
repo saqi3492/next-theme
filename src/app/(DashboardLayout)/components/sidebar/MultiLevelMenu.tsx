@@ -74,7 +74,7 @@ const MultiLevelMenu: React.FC<MultiLevelMenuProps> = ({ sidebarCompact = false 
     return data.map((item, index) => {
       if (item.type === 'label')
         return (
-          <ListLabel key={index} compact={COMPACT}>
+          <ListLabel key={index} compact={COMPACT ? 1 : undefined}>
             {item.label}
           </ListLabel>
         );
@@ -116,13 +116,13 @@ const MultiLevelMenu: React.FC<MultiLevelMenuProps> = ({ sidebarCompact = false 
             >
               {item?.icon ? <item.icon sx={iconStyle(activeRoute(item.path))} /> : <BulletIcon active={!!activeRoute(item.path)} />}
 
-              <StyledText compact={COMPACT} active={activeRoute(item.path)}>
+              <StyledText compact={COMPACT ? 1 : undefined} active={activeRoute(item.path)}>
                 {item.name}
               </StyledText>
 
               <Box mx="auto" />
 
-              {item.badge && <BadgeValue compact={!!COMPACT}>{item.badge.value}</BadgeValue>}
+              {item.badge && <BadgeValue compact={COMPACT ? true : undefined}>{item.badge.value}</BadgeValue>}
             </NavItemButton>
           </Box>
         );
