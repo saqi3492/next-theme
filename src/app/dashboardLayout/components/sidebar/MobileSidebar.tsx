@@ -1,10 +1,10 @@
 import React from 'react';
-import MultiLevelMenu from './MultiLevelMenu';
+import MultiLevelMenu from '@/app/dashboardLayout/components/sidebar/MultiLevelMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Drawer, useTheme } from '@mui/material';
-import { setSidebarCompact } from '../../../../../store/reducers/themeOptionsSlice';
+import { setSidebarCompact } from '@/store/reducers/themeOptionsSlice';
 import { SIDEBAR_WIDTH } from '@/utils/constants';
-import HeaderLogo from '../header/HeaderLogo';
+import HeaderLogo from '@/app/dashboardLayout/components/header/HeaderLogo';
 
 const MobileSidebar: React.FC = () => {
   const theme = useTheme();

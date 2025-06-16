@@ -9,7 +9,7 @@ const SessionHeader: React.FC = () => {
 
   const handleStartSession = async () => {
     setLoading(true);
-    router.push('/');
+    router.push('/sessions');
     setLoading(false);
   };
 

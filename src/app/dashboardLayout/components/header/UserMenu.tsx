@@ -1,10 +1,10 @@
 import React, { useState, MouseEvent } from 'react';
 import { Typography, useMediaQuery, Stack, useTheme, Popover, MenuItem, Paper, Divider } from '@mui/material';
-import StyledAvatar from './StyledAvatar';
+import StyledAvatar from '@/app/dashboardLayout/components/header/StyledAvatar';
 import { useSelector } from 'react-redux';
 import { handleLogout } from '@/utils/helpers';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
-import { RootState } from '../../../../../store/store';
+import { RootState } from '@/store/store';
 
 const UserMenu: React.FC = () => {
   const theme = useTheme();

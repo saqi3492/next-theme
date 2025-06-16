@@ -1,4 +1,4 @@
-import PasswordInputField from '@/app/(DashboardLayout)/components/shared/PasswordInputField';
+import PasswordInputField from '@/app/dashboardLayout/components/shared/PasswordInputField';
 import { Box, Button, Typography } from '@mui/material';
 
 const ResetPasswordForm = ({ formik }) => {

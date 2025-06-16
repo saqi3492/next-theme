@@ -1,13 +1,22 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box } from '@mui/material';
-import Sidebar from './components/sidebar/Sidebar';
-import Header from './components/header/Header';
+import Sidebar from '@/app/dashboardLayout/components/sidebar/Sidebar';
+import Header from '@/app/dashboardLayout/components/header/Header';
 import { COLLAPSED_SIDEBAR_WIDTH, HEADER_HEIGHT, SIDEBAR_WIDTH } from '@/utils/constants';
 import { useSelector } from 'react-redux';
+import { redirect } from 'next/navigation';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const sidebarCompact = useSelector((state: any) => state.ThemeOptions.sidebarCompact);
+
+  useEffect(() => {
+    const authToken = localStorage.getItem('authentication_token');
+    if (!authToken) {
+      redirect('/authentication/login');
+    }
+  }, []);
+
   return (
     <>
       <Sidebar />

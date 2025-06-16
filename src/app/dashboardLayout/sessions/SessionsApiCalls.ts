@@ -1,9 +1,9 @@
-// import axios from 'axios';
+//import { getFormattedDate, handleCatchError, handleErrorMessages } from '@/utils/helpers';
+import { dispatch, getState } from '@/store/store';
+import { setHideBeatLoader, setShowBeatLoader, setSnackbarObj } from '@/store/reducers/alertsSlice';
+import { deleteSessionAction, setSessions } from '@/store/reducers/sessionSLice';
 
 import { getFormattedDate, handleCatchError, handleErrorMessages } from '@/utils/helpers';
-import { dispatch, getState } from '../../../../store/store';
-import { setHideBeatLoader, setShowBeatLoader, setSnackbarObj } from '../../../../store/reducers/alertsSlice';
-import { deleteSessionAction, setSessions } from '../../../../store/reducers/sessionSLice';
 
 export interface Session {
   id: number;

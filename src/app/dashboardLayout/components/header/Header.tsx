@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderContent from './HeaderContent';
 import { AppBar } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { HEADER_HEIGHT } from '../../../../utils/constants';
+import { HEADER_HEIGHT } from '@/utils/constants';
 
 const Header: React.FC = () => {
   return (

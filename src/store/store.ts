@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import User from './reducers/userSlice';
-import Alerts from './reducers/alertsSlice';
-import ThemeOptions from './reducers/themeOptionsSlice';
-import MasterData from './reducers/masterDataSlice';
-import Session from './reducers/sessionSLice';
+import User from '@/store/reducers/userSlice';
+import Alerts from '@/store/reducers/alertsSlice';
+import ThemeOptions from '@/store/reducers/themeOptionsSlice';
+import MasterData from '@/store/reducers/masterDataSlice';
+import Session from '@/store/reducers/sessionSLice';
 
 const store = configureStore({
   reducer: { User, Alerts, ThemeOptions, MasterData, Session },

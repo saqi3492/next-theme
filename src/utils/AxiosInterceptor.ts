@@ -1,6 +1,6 @@
 import axios, { InternalAxiosRequestConfig, AxiosResponse, AxiosHeaders } from 'axios';
 import { config } from '@/config/config';
-import { getLocalStorageItem, handleLogout } from './helpers';
+import { getLocalStorageItem, handleLogout } from '@/utils/helpers';
 
 // Extend InternalAxiosRequestConfig to allow custom properties
 interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {

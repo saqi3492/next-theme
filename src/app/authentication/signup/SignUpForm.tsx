@@ -2,11 +2,11 @@ import { useFormik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { handleSignUp } from '@/app/authentication/auth/AuthApiCalls';
 import { Box, Button, Stack, Typography } from '@mui/material';
-import CustomLink from '@/app/(DashboardLayout)/components/shared/CustomLink';
-import InputField from '@/app/(DashboardLayout)/components/shared/InputField';
-import InputDropdownField from '@/app/(DashboardLayout)/components/shared/InputDropdownField';
+import CustomLink from '@/app/dashboardLayout/components/shared/CustomLink';
+import InputField from '@/app/dashboardLayout/components/shared/InputField';
+import InputDropdownField from '@/app/dashboardLayout/components/shared/InputDropdownField';
 import { useSelector } from 'react-redux';
-import PasswordInputField from '@/app/(DashboardLayout)/components/shared/PasswordInputField';
+import PasswordInputField from '@/app/dashboardLayout/components/shared/PasswordInputField';
 import { useRouter } from 'next/navigation';
 
 interface SignUpFormValues {

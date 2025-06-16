@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../../../store/store';
-import { setSnackbarObj, SnackbarObj } from '../../../../../../store/reducers/alertsSlice';
+import { RootState } from '@/store/store';
+import { setSnackbarObj, SnackbarObj } from '@/store/reducers/alertsSlice';
 
 const SnackbarAlert: React.FC = () => {
   const dispatch = useDispatch();

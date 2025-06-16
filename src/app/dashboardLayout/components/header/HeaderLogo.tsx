@@ -7,8 +7,8 @@ import Logo from '@/assets/logo.png';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import { HEADER_HEIGHT } from '@/utils/constants';
-import { setSidebarCompact } from '../../../../../store/reducers/themeOptionsSlice';
-import { RootState } from '../../../../../store/store';
+import { setSidebarCompact } from '@/store/reducers/themeOptionsSlice';
+import { RootState } from '@/store/store';
 
 const HeaderLogo: React.FC = () => {
   const dispatch = useDispatch();

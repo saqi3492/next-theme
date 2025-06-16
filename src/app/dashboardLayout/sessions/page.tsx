@@ -4,7 +4,7 @@ import { fetchSessionData } from './SessionsApiCalls';
 import SessionsTable from './SessionsTable';
 import SessionHeader from './SessionHeader';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../../store/store';
+import { RootState } from '@/store/store';
 
 const Sessions = () => {
   const rowData = useSelector((state: RootState) => state.Session.sessions);

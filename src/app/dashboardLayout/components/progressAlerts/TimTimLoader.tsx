@@ -2,7 +2,7 @@ import { Box, useTheme } from '@mui/material';
 import { useSelector } from 'react-redux';
 import BeatLoader from 'react-spinners/BeatLoader';
 import { HEADER_HEIGHT } from '@/utils/constants';
-import { RootState } from '../../../../../../store/store';
+import { RootState } from '@/store/store';
 
 const TimTimLoader: React.FC = () => {
   const theme = useTheme();

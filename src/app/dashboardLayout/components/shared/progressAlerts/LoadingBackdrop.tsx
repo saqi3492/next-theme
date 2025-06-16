@@ -1,7 +1,7 @@
 import CircularProgress from '@mui/material/CircularProgress';
 import Backdrop from '@mui/material/Backdrop';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../../../../store/store';
+import { RootState } from '@/store/store';
 
 const LoadingBackdrop: React.FC = () => {
   const loadingBackdrop = useSelector((state: RootState) => state.Alerts.loadingBackdrop);

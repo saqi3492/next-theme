@@ -1,8 +1,8 @@
 
 // import axios from 'axios';
-import { dispatch, getState } from '../../../../store/store';
-import { setSnackbarObj } from '../../../../store/reducers/alertsSlice';
-import { setUserDetail } from '../../../../store/reducers/userSlice';
+import { dispatch, getState } from '@/store/store';
+import { setSnackbarObj } from '@/store/reducers/alertsSlice';
+import { setUserDetail } from '@/store/reducers/userSlice';
 import { handleCatchError, handleErrorMessages, setItemInLocalStorage } from '@/utils/helpers';
 
 export const resetPassword = async (_values?: any): Promise<void> => {};

@@ -4,10 +4,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import './global.css';
 import { Provider } from 'react-redux';
-import store from '../../store/store';
+import store from '@/store/store';
 import AxiosInterceptor from '@/utils/AxiosInterceptor';
-import ProgressAlerts from './(DashboardLayout)/components/shared/progressAlerts/ProgressAlerts';
-import ErrorBoundary from './(DashboardLayout)/components/shared/ErrorBoundary';
+import ProgressAlerts from '@/app/dashboardLayout/components/shared/progressAlerts/ProgressAlerts';
+import ErrorBoundary from '@/app/dashboardLayout/components/shared/ErrorBoundary';
 
 AxiosInterceptor.initialize();
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, useTheme } from '@mui/material';
 import MultiLevelMenu from './MultiLevelMenu';
 import { useSelector } from 'react-redux';
-import { COLLAPSED_SIDEBAR_WIDTH, SIDEBAR_WIDTH } from '../../../../utils/constants';
+import { COLLAPSED_SIDEBAR_WIDTH, SIDEBAR_WIDTH } from '@/utils/constants';
 
 const DesktopSidebar: React.FC = () => {
   const theme = useTheme();

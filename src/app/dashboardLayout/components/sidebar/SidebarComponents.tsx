@@ -3,7 +3,7 @@ import ButtonBase, { ButtonBaseProps } from '@mui/material/ButtonBase';
 import { Box, BoxProps } from '@mui/material';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
-import { RootState } from '../../../../../store/store';
+import { RootState } from '@/store/store';
 import React, { ReactNode } from 'react';
 
 interface NavItemButtonProps extends ButtonBaseProps {

@@ -5,12 +5,12 @@ import { useRouter } from 'next/navigation';
 import { useFormik, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { Grid } from '@mui/material';
-import ForgotPasswordForm from './ForgotPasswordForm';
-import ResetPasswordForm from './ResetPasswordForm';
-import OtpVerification from './OtpVerification';
-import { forgotPassword, resetPassword } from '../auth/AuthApiCalls';
-import Description from '../auth/Description';
-import AuthCard from '@/app/(DashboardLayout)/components/shared/AuthCard';
+import ForgotPasswordForm from '@/app/authentication/resetPassword/ForgotPasswordForm';
+import ResetPasswordForm from '@/app/authentication/resetPassword/ResetPasswordForm';
+import OtpVerification from '@/app/authentication/resetPassword/OtpVerification';
+import { forgotPassword, resetPassword } from '@/app/authentication/auth/AuthApiCalls';
+import Description from '@/app/authentication/auth/Description';
+import AuthCard from '@/app/authentication/auth/AuthCard';
 
 /**
  * @typedef {Object} ForgotPasswordFormValues
